@@ -1,6 +1,4 @@
-package studentCode;
-
-
+import GridTools.MyGrid;
 
 import java.util.Scanner;
 
@@ -19,6 +17,34 @@ public class ExampleDriver {
 	
 	public static void main(String[] args) {
 		
-		System.out.println(weirdSum(1,2,7));
+		Scanner scanner = new Scanner(System.in);
+		
+		/* Get input from user about what flag to draw */
+		System.out.println("Type the number of the flag you want to see:  ");
+		System.out.println("1 Indonesia");
+		System.out.println("2 Lithuania");
+		System.out.println("3 Rwanda");
+		System.out.println("4 Malta");
+		System.out.println("5 Afghanistan");
+		System.out.println("6 Eritrea");
+		System.out.println("7 Macedonia");
+		System.out.println("8 The Bahamas");
+		System.out.println("9 Zimbabwe");
+		System.out.print("Your choice here:");
+		int choice = scanner.nextInt();
+		System.out.print("Choose a size (4 or larger): ");
+		int size = scanner.nextInt();
+		if (size < 4 || size >30){
+			size = 4;
+			choice = 999;  /* should result in "error flag" */
+		}
+		
+		scanner.close();
+		
+		/* Create drawing grid of the height requested */
+		MyGrid grid = new MyGrid(size);
+
+		/* Draw the letter on the grid */
+		FlagMaker.drawFlag(grid, choice);
 	}
 }
